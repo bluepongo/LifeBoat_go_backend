@@ -1,0 +1,25 @@
+# binary
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+./bin/*
+*.test
+
+# config
+.idea/
+*/.idea/
+.DS_Store
+test/*.json
+
+# output
+*.out
+log/
+*/*.log
+*.log
+
+#other
+.vscode/
+.test
+note/*
