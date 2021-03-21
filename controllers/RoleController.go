@@ -11,7 +11,7 @@ import (
 func GetRoleByID(c *gin.Context) {
 	id, _ := strconv.Atoi(c.Param("id"))
 	roleModel := models.Role{}
-	data, err := roleModel.GetAllRole(id)
+	data, err := roleModel.GetRoleByID(id)
 	if err != nil {
 		c.JSON(http.StatusNotFound, gin.H{
 			"msg": err.Error(),

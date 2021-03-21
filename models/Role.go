@@ -21,7 +21,7 @@ type Role struct {
 }
 
 // Get role by id
-func (model *Role) GetUserByID(id int) (role Role, err error) {
+func (model *Role) GetRoleByID(id int) (role Role, err error) {
 	// find the role by id
 	sql := `
 		select id, role_name, hp, suv_score, seat, describe
