@@ -4,7 +4,7 @@ package drivers
 import (
 	"database/sql"
 	"fmt"
-	"lifeboat_go_backend/config"
+	"github.com/bluepongo/lifeboat_go_backend/config"
 	"strconv"
 	"time"
 
