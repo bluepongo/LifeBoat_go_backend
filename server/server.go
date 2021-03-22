@@ -17,11 +17,6 @@ func Run(httpServer *gin.Engine) {
 
 	httpServer = gin.Default()
 
-	// 配置视图
-	if "" != serverConfig["VIEWS_PATTERN"] {
-		httpServer.LoadHTMLGlob(serverConfig["VIEWS_PATTERN"])
-	}
-
 	// 注册路由
 	routes.RegisterRoutes(httpServer)
 
