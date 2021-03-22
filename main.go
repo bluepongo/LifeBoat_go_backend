@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/bluepongo/lifeboat_go_backend/drivers"
+	"github.com/bluepongo/lifeboat_go_backend/server"
 	"github.com/gin-gonic/gin"
-	"lifeboat_go_backend/server"
 )
 
 var HttpServer *gin.Engine

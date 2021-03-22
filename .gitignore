@@ -11,7 +11,7 @@
 .idea/
 */.idea/
 .DS_Store
-test/*.json
+test/*
 
 # output
 *.out

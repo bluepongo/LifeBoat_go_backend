@@ -2,8 +2,7 @@ package server
 
 import (
 	"github.com/bluepongo/lifeboat_go_backend/config"
-	"github.com/bluepongo/lifeboat_go_backend/routers"
-
+	routes "github.com/bluepongo/lifeboat_go_backend/routers"
 	"github.com/gin-gonic/gin"
 )
 

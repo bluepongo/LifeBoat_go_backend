@@ -8,4 +8,5 @@ import (
 func RegisterRoutes(router *gin.Engine) {
 	router.GET("/users/:id", controllers.GetRoleByID)
 	router.GET("/users", controllers.GetAllRoles)
+	router.POST("users", controllers.AddRole)
 }

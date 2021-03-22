@@ -1,0 +1,19 @@
+### get role by id
+GET http://{{baseURL}}/users/1
+Content-Type: application/json
+
+### get all roles
+GET http://{{baseURL}}/users
+Content-Type: application/json
+
+### add new environment
+POST http://{{baseURL}}/api/v1/metadata/env
+Content-Type: application/json
+
+{"env_name": "new_environment"}
+
+### update environment by id
+POST http://{{baseURL}}/api/v1/metadata/env/1
+Content-Type: application/json
+
+{"env_name": "test123", "del_flag": 1}

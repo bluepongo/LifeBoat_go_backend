@@ -68,3 +68,24 @@ func (model *Role) GetAllRoles() (roles []Role, err error) {
 	}
 	return
 }
+
+// Add a role
+func (model *Role) AddRole() (id int64, err error) {
+	sql := `
+		insert into lifeboat
+		role_info(role_name, hp, suv_score, seat, des)
+		values(?, ?, ?, ?, ?)`
+	result, err := db.Exec(sql,
+		model.RoleName,
+		model.HP,
+		model.SuvScore,
+		model.Seat,
+		model.Describe,
+	)
+	if err != nil {
+		log.Println(err.Error())
+		return
+	}
+	id, err = result.LastInsertId()
+	return
+}
