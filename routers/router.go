@@ -6,7 +6,12 @@ import (
 )
 
 func RegisterRoutes(router *gin.Engine) {
-	router.GET("/users/:id", controllers.GetRoleByID)
-	router.GET("/users", controllers.GetAllRoles)
-	router.POST("users", controllers.AddRole)
+	groupRoles := router.Group("/api/v1/lifeboat")
+	{
+		groupRoles.GET("/roles/:name", controllers.GetRoleByName)
+		groupRoles.GET("/roles", controllers.GetAllRoles)
+		groupRoles.POST("/roles", controllers.AddRole)
+		groupRoles.POST("/roles/:id", controllers.UpdateRoleByID)
+		groupRoles.DELETE("/roles/:id", controllers.DeleteUserByID)
+	}
 }

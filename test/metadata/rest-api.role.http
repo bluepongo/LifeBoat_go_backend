@@ -1,19 +1,25 @@
-### get role by id
-GET http://{{baseURL}}/users/1
+### get role by name
+GET http://{{baseURL}}/api/v1/lifeboat/roles/Rolen
 Content-Type: application/json
 
 ### get all roles
-GET http://{{baseURL}}/users
+GET http://{{baseURL}}/api/v1/lifeboat/roles
 Content-Type: application/json
 
-### add new environment
-POST http://{{baseURL}}/api/v1/metadata/env
+### add new role
+POST http://{{baseURL}}/api/v1/lifeboat/roles
 Content-Type: application/json
 
-{"env_name": "new_environment"}
+{"role_name": "钢铁侠", "hp": 8, "suv_score": 6, "seat": 7, "des": "打个响指毁天灭地"}
 
-### update environment by id
-POST http://{{baseURL}}/api/v1/metadata/env/1
+
+### update the role info
+POST http://{{baseURL}}/api/v1/lifeboat/roles/12
 Content-Type: application/json
 
-{"env_name": "test123", "del_flag": 1}
+{"role_name": "猪猪侠", "hp": 4, "suv_score": 8, "seat": 8, "des": "究极无敌擦玻璃工人"}
+
+
+### delete role by id
+DELETE http://{{baseURL}}/api/v1/lifeboat/roles/12
+Content-Type: application/json

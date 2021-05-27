@@ -21,13 +21,13 @@ type Role struct {
 }
 
 // Get role by id
-func (model *Role) GetRoleByID(id int) (role Role, err error) {
+func (model *Role) GetRoleByName(name string) (role Role, err error) {
 	// find the role by id
 	sql := `
 		select id, role_name, hp, suv_score, seat, des
 		from role_info
-		where id = ?`
-	err = db.QueryRow(sql, id).Scan(
+		where role_name = ?`
+	err = db.QueryRow(sql, name).Scan(
 		&role.ID,
 		&role.RoleName,
 		&role.HP,
@@ -72,8 +72,7 @@ func (model *Role) GetAllRoles() (roles []Role, err error) {
 // Add a role
 func (model *Role) AddRole() (id int64, err error) {
 	sql := `
-		insert into lifeboat
-		role_info(role_name, hp, suv_score, seat, des)
+		insert into role_info(role_name, hp, suv_score, seat, des)
 		values(?, ?, ?, ?, ?)`
 	result, err := db.Exec(sql,
 		model.RoleName,
@@ -87,5 +86,41 @@ func (model *Role) AddRole() (id int64, err error) {
 		return
 	}
 	id, err = result.LastInsertId()
+	return
+}
+
+// Update the role info by id
+func (model *Role) UpdateRoleByID(id int) (afr int64, err error) {
+	sql := `
+		update role_info
+		set role_name = ?, hp = ?, suv_score = ?, seat = ?, des = ?
+		where id = ?`
+	result, err := db.Exec(sql,
+		model.RoleName,
+		model.HP,
+		model.SuvScore,
+		model.Seat,
+		model.Describe,
+		id,
+	)
+	if err != nil {
+		log.Println(err.Error())
+		return
+	}
+	afr, err = result.RowsAffected()
+	return
+}
+
+// Delete a role by id
+func (model *Role) DeleteRoleByID(id int) (afr int64, err error) {
+	sql := `
+		delete from role_info
+		where id = ?`
+	result, err := db.Exec(sql, id)
+	if err != nil {
+		log.Println(err.Error())
+		return
+	}
+	afr, err = result.RowsAffected()
 	return
 }
